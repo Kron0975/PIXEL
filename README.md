@@ -26,7 +26,7 @@ PIXEL is a simple art gallery website that we made as a college project. It keep
 
 ## Project Structure
 
-'''
+```
 PIXEL/
 ├── index.html
 ├── artists.html
@@ -39,7 +39,7 @@ PIXEL/
 ├── exhibitions.css
 ├── gallery.css
 └── images/
-'''
+```
 
 ## How to Run
 
