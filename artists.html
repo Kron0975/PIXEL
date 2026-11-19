@@ -70,6 +70,65 @@
         
 
     </main>
+    <script>
+        // Create Exhibition Button
+
+        let createBtn = document.querySelector(".createbtn");
+
+        createBtn.addEventListener("click", function() {
+            alert("Create Exhibition option will be available soon!");
+        });
+
+
+        // Artist Search
+
+        let search = document.querySelector(".search-bar input");
+
+        let artists = document.getElementsByClassName("artist-card");
+
+        search.addEventListener("input", function() {
+
+            let value = search.value.toLowerCase();
+
+            for(let i = 0; i < artists.length; i++) {
+
+                let name = artists[i].querySelector("h3").textContent.toLowerCase();
+
+                let style = artists[i].querySelector(".style").textContent.toLowerCase();
+
+                if(name.includes(value) || style.includes(value)) {
+
+                    artists[i].style.display = "block";
+
+                }
+
+                else {
+
+                    artists[i].style.display = "none";
+
+                }
+
+            }
+
+        });
+
+
+        // View Profile Buttons
+
+        let profileButtons = document.querySelectorAll(".artist-card button");
+
+        for(let i = 0; i < profileButtons.length; i++) {
+
+            profileButtons[i].addEventListener("click", function() {
+
+                let name = artists[i].querySelector("h3").textContent;
+
+                alert("You are viewing the profile of " + name);
+
+            });
+
+        }
+    </script>
 
 </body>
 </html>

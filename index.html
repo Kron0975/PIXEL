@@ -24,7 +24,7 @@
 
         </nav>
 
-        <button class = "createbtn">Create Exhibition</button>
+        <button onclick="crtbutton()" class="createbtn" >Create Exhibition</button>
     </header>
     
     <main>
@@ -168,6 +168,24 @@
         </tbody>
     </table>
     </section>
+
+    <script>
+        function crtbutton(){
+            alert("Create Exhibition option will be soon available!")
+        };
+
+        // Create Exhibition Button
+
+
+        // View All Exhibitions
+
+        let viewAll = document.querySelector(".section-heading a");
+
+        viewAll.addEventListener("click", function() {
+            window.location.href = "exhibitions.html";
+        });
+
+    </script>
 
     
 

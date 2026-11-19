@@ -33,8 +33,13 @@
                 </p>
             </div> 
 
-            <button class="button">+ Art Work</button> 
+            <button class="button" onclick="addwork()">+ Art Work</button> 
         </section>
+        <script>
+            function addwork() {
+                alert("Add ArtWork option will be available soon !")
+            }
+        </script>
 
         <section class ="stats">
             <div class ="stat-card">
@@ -276,6 +281,102 @@
     <footer>
         &copy; 2026 Art Gallery. All Rights Reserved.
     </footer>
+
+    <script>
+        // Create Exhibition Button
+
+        let createBtn = document.querySelector(".createbtn");
+
+        createBtn.addEventListener("click", function() {
+            alert("Create Exhibition option will be available soon!");
+        });
+
+
+        // Add Artwork Button
+
+        let addBtn = document.querySelector(".page-heading .button");
+
+        addBtn.addEventListener("click", function() {
+            alert("Add Artwork option will be available soon!");
+        });
+
+
+        // Search and Filter
+
+        let search = document.getElementById("searchInput");
+
+        let artistFilter = document.getElementById("artistFilter");
+
+        let statusFilter = document.getElementById("statusFilter");
+
+        let artworks = document.getElementsByClassName("artwork-card");
+
+        let resultCount = document.getElementById("resultCount");
+
+
+        function filterArtworks() {
+
+            let searchValue = search.value.toLowerCase();
+
+            let artistValue = artistFilter.value;
+
+            let statusValue = statusFilter.value;
+
+            let count = 0;
+
+
+            for(let i = 0; i < artworks.length; i++) {
+
+                let name = artworks[i].querySelector("h3").textContent.toLowerCase();
+
+                let artist = artworks[i].querySelector(".artist-name").textContent.toLowerCase();
+
+                let status = artworks[i].querySelector(".status").textContent.toLowerCase();
+
+
+                let searchMatch = name.includes(searchValue) || artist.includes(searchValue);
+
+                let artistMatch = artistValue === "all" || artist.includes(artistValue);
+
+                let statusMatch = statusValue === "all" || status === statusValue;
+
+
+                if(searchMatch && artistMatch && statusMatch) {
+
+                    artworks[i].style.display = "block";
+
+                    count++;
+
+                }
+
+                else {
+
+                    artworks[i].style.display = "none";
+
+                }
+
+            }
+
+
+            resultCount.textContent = count + " artworks";
+
+        }
+
+
+        // Search Event
+
+        search.addEventListener("input", filterArtworks);
+
+
+        // Artist Filter Event
+
+        artistFilter.addEventListener("change", filterArtworks);
+
+
+        // Status Filter Event
+
+        statusFilter.addEventListener("change", filterArtworks);
+    </script>
 
 
 </body>
